@@ -10,7 +10,7 @@ namespace csharp_biblioteca
     {
         public int Duration { get; set; }
 
-        public Dvd( int duration, string code, string title, int year, string genre, string author, int shelf) : base(code, title, year, genre, author, shelf)  
+        public Dvd( string code, string title, int year, string genre, int duration, string author, int shelf) : base(code, title, year, genre, author, shelf)  
         { 
             Duration = duration;
         }

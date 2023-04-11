@@ -57,5 +57,19 @@ namespace csharp_biblioteca
             }
             return risultati;
         }
+
+        //metodo di ricerca utente 
+        public List<Lending> SearchForUser(string name, string surname)
+        {
+            List<Lending> risultati = new();
+            foreach (Lending lending in Lendings)
+            {
+                if (lending.User.Name == name && lending.User.Surname == surname)
+                {
+                    risultati.Add(lending);
+                }
+            }
+            return risultati;   
+        }
     }
 }
