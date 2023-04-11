@@ -31,18 +31,17 @@ namespace csharp_biblioteca
         }
 
         //metodo di ricerca documento
-        public List<Document> SearchForCode(string code)
+        public List<Document> SearchForCode(string codice)
         {
-            List<Document> res = new List<Document>();
+            List<Document> risultati = new();
             foreach (Document document in Documents)
             {
-                if (document.Code == code)
+                if (document.Code == codice)
                 {
-                    res.Add(document);
+                    risultati.Add(document);
                 }
-                
-                return res;
             }
+            return risultati;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace csharp_biblioteca
 
             //esempio di ricerca documenti della lista documenti
             string codeDoc = "BK123243";
-            Console.WriteLine($"Risultati della ricerca per codice {codeDoc}");
+            Console.WriteLine($"Risultati della ricerca per codice: {codeDoc}");
             foreach( Document doc in library.SearchForCode(codeDoc))
             {
                 Console.WriteLine($"{doc.Title} ({doc.Year}) di {doc.Author}");
