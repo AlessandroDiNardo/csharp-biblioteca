@@ -6,14 +6,23 @@ namespace csharp_biblioteca
     {
         static void Main(string[] args)
         {
-            List<User> Users = new List<User>();
-            List<Document> Documents = new List<Document>();
-            List<Lending> Lendings = new List<Lending>();
+            //creazione istanza biblioteca
+            Library library = new Library();
 
-            //metodo per aggiungere utente 
-            public static void AddUser(User user)
+            //aggiunta utenti alla lista  utenti
+            library.AddUser( new User("Alessandro", "Di Nardo", "dna@gmail.com", "password12345", "+39 3335467898"));
+            library.AddUser(new User("Giovanni", "Rossi", "rossi@gmail.com", "password12345", "+39 3333456787"));
+
+            //aggiunta documenti alla lista documenti
+            library.AddDocument(new Book(760, "BK123243", "Harry Potter e la pietra filosofale", 2002, "fantasy", "J.K. Rowling", 12));
+            library.AddDocument(new Dvd(120, "DV123454", "Harry Potter e la pietra filosofale", 2002, "fantasy", "J.K. Rowling", 34));
+
+            //esempio di ricerca documenti della lista documenti
+            string codeDoc = "BK123243";
+            Console.WriteLine($"Risultati della ricerca per codice {codeDoc}");
+            foreach( Document doc in library.SearchForCode(codeDoc))
             {
-                Users.Add(user);
+                Console.WriteLine($"{doc.Title} ({doc.Year}) di {doc.Author}");
             }
         }
     }

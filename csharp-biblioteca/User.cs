@@ -12,9 +12,9 @@ namespace csharp_biblioteca
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public User(string name, string surname, string email, string password, int phonenumber) 
+        public User(string name, string surname, string email, string password, string phonenumber) 
         {
             Name = name;
             Surname = surname; 
