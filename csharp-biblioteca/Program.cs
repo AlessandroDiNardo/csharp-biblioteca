@@ -15,12 +15,12 @@ namespace csharp_biblioteca
 
             //aggiunta documenti alla lista documenti
             library.AddDocument(new Book(760, "BK123243", "Harry Potter e la pietra filosofale", 2002, "fantasy", "J.K. Rowling", 12));
-            library.AddDocument(new Dvd(120, "DV123454", "Harry Potter e la pietra filosofale", 2002, "fantasy", "J.K. Rowling", 34));
+            library.AddDocument(new Dvd(120, "DV123454", "Harry Potter e il principe mezzosangue", 2009, "fantasy", "J.K. Rowling", 34));
 
             //esempio di ricerca documenti della lista documenti
-            string codeDoc = "BK123243";
+            string codeDoc = "Harry Potter e la pietra filosofale";
             Console.WriteLine($"Risultati della ricerca per codice: {codeDoc}");
-            foreach( Document doc in library.SearchForCode(codeDoc))
+            foreach( Document doc in library.SearchForTitle(codeDoc))
             {
                 Console.WriteLine($"{doc.Title} ({doc.Year}) di {doc.Author}");
             }
