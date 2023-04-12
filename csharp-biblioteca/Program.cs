@@ -14,7 +14,7 @@ library.AddDocument(new Dvd("Dvd0001", "The Mark Wahlberg: 5-Film Collection", 2
 library.AddDocument(new Dvd("Dvd0002", "The Dark Knight Trilogy", 2012, "Action", 120, "Christopher Nolan", 34));
 
 // Mostra un messaggio di benvenuto e chiede all'utente di scegliere la modalità di ricerca
-Console.WriteLine("Benvenuto nella Biblioteca! Cosa vuoi fare:\n[1] Ricerca per codice.\n[2] Ricerca per titolo\n[3] Fai un prestito.\n[4] Ricerca un prestito.");
+Console.WriteLine("Benvenuto nella Biblioteca! Cosa vuoi fare:\n[1] Ricerca per codice.\n[2] Ricerca per titolo\n[3] Fai un prestito.");
 
 // Legge l'input dell'utente e lo memorizza nella variabile "scelta"
 ConsoleKeyInfo scelta = Console.ReadKey();
@@ -24,7 +24,6 @@ while (scelta.KeyChar != '1' && scelta.KeyChar != '2' && scelta.KeyChar != '3')
 {
     Console.WriteLine("\nScelta non valida. Premi 1 per la ricerca per codice, 2 per la ricerca per titolo, 3 per fare un prestito");
     scelta = Console.ReadKey();
-
 }
 
 // Se l'utente ha scelto la modalità di ricerca per codice
@@ -91,7 +90,29 @@ else if (scelta.KeyChar == '3')
 {
     // Pulisce la console
     Console.Clear();
-    
+
+    Console.WriteLine("Registrati per effettuare un prestito:");
+
+    Console.Write("Nome: ");
+    string name = Console.ReadLine() ?? string.Empty;
+
+    Console.Write("Cognome: ");
+    string surname = Console.ReadLine() ?? string.Empty;
+
+    Console.Write("Email: ");
+    string email = Console.ReadLine() ?? string.Empty;
+
+    Console.Write("Password: ");
+    string password = Console.ReadLine() ?? string.Empty;
+
+    Console.Write("Numero di telefono: ");
+    string phonenumber = Console.ReadLine() ?? string.Empty;
+
+    User user = new User (name, surname, email, password, phonenumber);
+    library.Users.Add (user);
+
+    Console.WriteLine("Ti sei registrato correttamente!");
+    Console.WriteLine("Cosa vuoi prendere in prestito? Libro o Dvd?");
 }
 
 // Chiedi all'utente di premere un tasto per uscire
