@@ -12,8 +12,8 @@ namespace csharp_biblioteca
         public string PeriodFrom { get; }
         public string PeriodTo { get; set; }
 
-        public  Document Document { get; set; }
-        public Lending( string periodfrom, string periodto, Document document, User user) 
+        public  Documenti Document { get; set; }
+        public Lending( string periodfrom, string periodto, Documenti document, User user) 
         {
             PeriodFrom = periodfrom;
             PeriodTo = periodto;
