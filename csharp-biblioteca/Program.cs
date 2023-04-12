@@ -1,6 +1,7 @@
 ﻿
 // Aggiunta di alcuni libri alla lista dei documenti
 using csharp_biblioteca;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 Library library = new Library();
@@ -112,7 +113,44 @@ else if (scelta.KeyChar == '3')
     library.Users.Add (user);
 
     Console.WriteLine("Ti sei registrato correttamente!");
-    Console.WriteLine("Cosa vuoi prendere in prestito? Libro o Dvd?");
+
+    // Pulisce la console
+    Console.Clear();
+    // Chiede all'utente di inserire il titolo del libro o DVD da cercare
+    Console.Write("Inserisci il titolo del libro o DVD da cercare: ");
+    // Legge l'input dell'utente e lo memorizza nella variabile "titolo"
+    string titolo = Console.ReadLine() ?? string.Empty;
+
+    // Continua a chiedere all'utente di inserire un titolo valido finché l'input non è corretto
+    while (string.IsNullOrWhiteSpace(titolo))
+    {
+        Console.WriteLine("Titolo non valido. Inserisci un titolo valido: ");
+        titolo = Console.ReadLine() ?? string.Empty;
+    }
+
+    Console.WriteLine($"Risultati della ricerca per titolo \"{titolo}\":");
+
+    // Mostra i risultati della ricerca per titolo
+    List<Document> documentiTrovati = library.SearchForTitle(titolo);
+    if (documentiTrovati.Count == 0)
+    {
+        Console.WriteLine("Nessun risultato trovato.");
+    }
+    else
+    {
+        foreach (Document documento in documentiTrovati)
+        {
+            Console.WriteLine($"{documento.Title} ({documento.Year}) di {documento.Author} {documento.Author}");
+        }
+    }
+
+    Console.Write("Inserisci periodo di inizio:");
+    string periodfrom = Console.ReadLine() ?? string.Empty;
+
+    Console.Write("Inserisci periodo di fine: ");
+    string periodto = Console.ReadLine() ?? string.Empty;
+
+    Console.WriteLine("prestito completato");
 }
 
 // Chiedi all'utente di premere un tasto per uscire
